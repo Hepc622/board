@@ -1,0 +1,31 @@
+#数据库配置
+db:
+  server: 192.168.0.5
+  user: sa
+  password: Apryq186
+  database: TCI
+
+# web配置
+web:
+  port: 8080
+
+# 系统配置
+sys:
+  sql: 
+    device_machining: 
+        # 基础数据
+        - "select * from [dbo].[ZboardMachineWork ] ('%s')"
+        #  停机设备台数 # 排产设备台数
+        - "select OG009,COUNT(*) as NUM as stop FROM  dbo.ZboardMachineWork('%s') GROUP BY OG009"
+        # 排产无开工设备台数
+        - "select COUNT(*) as NUM  FROM  dbo.ZboardMachineWork('%s') WHERE TA006 is null"
+    device_unusual: 
+        # 设备产能异常看板
+        - "SELECT * FROM [dbo].[ZboardMachine] ('%s')"
+        - ""
+        - ""
+    person_unusual:
+        # 人员产能异常看板
+        - "SELECT * FROM [dbo].[ZboardPerson] ('%s')"
+        - ""
+        - ""
