@@ -14,18 +14,18 @@ sys:
   sql: 
     device_machining: 
         # 基础数据
-        - "select * from [dbo].[ZboardMachineWork ] ('%s')"
+        - "select * from dbo.ZboardMachineWork ('%s')"
         #  停机设备台数 # 排产设备台数
         - "select OG009,COUNT(*) as NUM FROM  dbo.ZboardMachineWork('%s') GROUP BY OG009"
         # 排产无开工设备台数
         - "select COUNT(*) as NUM  FROM  dbo.ZboardMachineWork('%s') WHERE TA006 is null"
     device_unusual: 
         # 设备产能异常看板
-        - "SELECT * FROM [dbo].[ZboardMachine] ('%s')"
-        - "select COUNT(*) as NUM from [dbo].[ZboardMachine]('%s') where MachineRate>=90 and MachineRate<=100"
-        - "select COUNT(*) as NUM from [dbo].[ZboardMachine]('%s') where MachineRate<90 and MachineRate>100"
+        - "SELECT * FROM dbo.ZboardMachine ('%s')"
+        - "select COUNT(*) as NUM from dbo.ZboardMachine('%s') where MachineRate>=90 and MachineRate<=100"
+        - "select COUNT(*) as NUM from dbo.ZboardMachine('%s') where MachineRate<90 and MachineRate>100"
     person_unusual:
         # 人员产能异常看板
-        - "SELECT * FROM [dbo].[ZboardPerson] ('%s')"
+        - "SELECT * FROM dbo.ZboardPerson ('%s')"
         - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE WorkTimeDoneRate >=90 and WorkTimeDoneRate <=100"
-        - "select COUNT(*) as NUM from dbo.ZboardPerson('20181023') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "
+        - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "
