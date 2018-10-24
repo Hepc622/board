@@ -11,10 +11,20 @@ app.register_blueprint(bc)
 
 
 @app.route("/")
-@app.route("/index")
 @app.route("/index.html")
-def index():
+def device_machining():
     return send_file("templates/index.html")
+
+@app.route("/device")
+@app.route("/deviceUnusual.html")
+def device_unusual():
+    return send_file("templates/deviceUnusual.html")
+
+@app.route("/person")
+@app.route("/personUnusual.html")
+def person_unusual():
+    return send_file("templates/personUnusual.html")
+
 
 
 # 跳转到404页面

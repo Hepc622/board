@@ -81,10 +81,8 @@ class Connect(object):
             traceback.print_exc()
         finally:
             cursor.close()
-            log.debug("close")
 
-            # 插入数据
-
+    # 插入数据
     def insert(self, sql, *params):
         sql = self.deal_sql(sql, params)
         try:
