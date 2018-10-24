@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" ondblclick="vue.exitFullScreen()" onclick="vue.gotoFullScreen()">
+<head>
+    <meta charset="UTF-8">
+    <!--&lt;!&ndash; UC强制全屏 &ndash;&gt;-->
+    <!--<meta name="full-screen" content="yes">-->
+    <!--&lt;!&ndash; QQ强制全屏 &ndash;&gt;-->
+    <!--<meta name="x5-fullscreen" content="true">-->
+    <!--&lt;!&ndash; IOS启用 WebApp 全屏模式 &ndash;&gt;-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes"/>-->
+    <title>board</title>
+
+    <!-- import CSS -->
+    <link rel="stylesheet" href="../static/js/element-ui/theme-chalk/index.css">
+</head>
+<body style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;margin:3px">
+<div id="app">
+    <template>
+	<el-table
+	  :default-expand-all="true"
+      style="width: 100%;">
+      	<template slot="empty">
+	    </template>
+		<el-table-column label="MES_人员产能异常看板"></el-table-column>
+	    <el-table-column :label="work"></el-table-column>
+    	<el-table-column :label="stop"></el-table-column>
+		<el-table-column :label="down"></el-table-column>
+		<el-table-column :label="time"></el-table-column>
+	</el-table>
+        <el-table
+                style="width: 100%"
+                border
+                show-summary
+                :data="tableData"
+                :summary-method="getSummaries"
+                :row-class-name="tableRowClassName">
+            <el-table-column 
+                     prop="ME002"
+                     align="center"
+                     label="车间名称">
+            </el-table-column>
+            <el-table-column
+                    prop="MJ002"
+                    align="center"
+                    label="设备编号">
+            </el-table-column>
+             <el-table-column
+                    prop="MJ006"
+                    align="center"
+                    label="设备名称">
+            </el-table-column>
+            <el-table-column
+                    prop="ZP005"
+                    align="center"
+                    label="操作工">
+            </el-table-column>
+            <el-table-column
+                    prop="SS004"
+                    align="center"
+                    label="工作时长">
+            </el-table-column>
+            <el-table-column
+                    prop="PayTime"
+                    align="center"
+                    label="计件工时">
+            </el-table-column>
+    	    <el-table-column
+                        prop="TestTime"
+                        align="center"
+                        label="调试工时">
+            </el-table-column>
+            <el-table-column
+                    align="center"
+                    prop="WorkTimeDoneRate"
+                    label="工时完成率">
+            </el-table-column>
+        </el-table>
+    </template>
+</div>
+
+</body>
+</html>
+
+<style>
+	.el-table__empty-block{
+		display: none;
+	}
+    /*让字体顶格显示*/
+    .el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell {
+       padding-right: 0px; 
+       padding-left: 0px;
+    }
+    .el-table .cell, .el-table th div {
+        padding-left: 0px;
+        padding-right: 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .el-table .stop-row {
+        /*background: #FF3333;*/
+        color: red;
+    }
+
+    .el-table .running-row {
+        /*background: #66FF99;*/
+        color: blue;
+    }
+
+    .el-table .other-row {
+        /*background: #FFCC66;*/
+        color: orange;
+    }
+    .el-table .fix-row {
+        /*background: #FFCC66;*/
+        color: red;
+    }
+   .el-table .cell{
+        /*font-size: 20px;*/
+        white-space: pre-line;
+        word-break: break-all;
+        /*line-height: 20px;*/
+    }
+    .el-table td, .el-table th{
+        padding: 2px 0; 
+    }
+    .el-table thead {
+        color: black;
+        /*font-size: 20px;*/
+    }
+</style>
+
+<!-- import Vue before Element -->
+<script src="../static/js/vue/vue.js"></script>
+<!-- import JavaScript -->
+<script src="../static/js/element-ui/lib/index.js"></script>
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/ajax.js"></script>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                tableData: [],
+                params: {
+                    page_num: 0,
+                    page_size: 20,
+                    total: 0
+                },
+                usual: "工时完成正常 人",
+                unusual: "工时完成异常 人",
+                max_page: 1,
+                delay_time: 10000,
+                time: "2018/10/21"
+            }
+        },
+        created: function () {
+            var date = new Date();
+            var time = date.getTime()-86400000;
+            date = new Date(time);
+            var str = "";  
+            var week = date.getDay();  
+            if (week == 0) {  
+                    str = "星期日";  
+            } else if (week == 1) {  
+                    str = "星期一";  
+            } else if (week == 2) {  
+                    str = "星期二";  
+            } else if (week == 3) {  
+                    str = "星期三";  
+            } else if (week == 4) {  
+                    str = "星期四";  
+            } else if (week == 5) {  
+                    str = "星期五";  
+            } else if (week == 6) {  
+                    str = "星期六";  
+            }  
+            this.time=date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+"  "+str;
+
+            this.dealPageNum()
+            this.getData();
+            //开启定时任务
+            setInterval(this.getData, this.delay_time);
+        },
+        methods: {
+            getSummaries:function (param) {
+                var sums = ["总条数",this.params.total,
+                    "总页数",Math.ceil(this.params.total/this.params.page_size),
+                    "当前页",this.params.page_num];
+                return sums;
+            },
+            //更改行样式
+            tableRowClassName: function (obj) {
+                var row, rowIndex;
+                row = obj.row;
+                var ZQTY = row["MI002"]
+                var TA006 = row["TA006"]
+                if(TA006){
+                    if (ZQTY == '正常运行') {
+                        return 'running-row';
+                    } else if (ZQTY == '故障停机') {
+                        return 'stop-row';
+                    } else if (ZQTY == '故障维修'){
+                        return 'fix-row'
+                    }
+                }else{
+                    if (ZQTY == '正常运行') {
+                        return 'other-row';
+                    } else if (ZQTY == '故障停机') {
+                        return 'stop-row';
+                    } else if (ZQTY == '故障维修'){
+                        return 'fix-row'
+                    }
+                }
+            },
+            //获取数据
+            getData: function () {
+                //动态设置分页页码
+                this.dealPageNum()
+                //发起请求
+                var that = this;
+                Ajax.post("/personUnusual", this.params,function (res) {
+                    that.tableData = res.data;
+                    that.params.total = res.total;
+                    that.usual="工时完成正常 "+res.run_stop[2].NUM+" 人";
+                    that.unusual="工时完成异常 "+res.run_stop[1].NUM+" 人";
+                    //重新设置一下max_page
+                    that.max_page = Math.ceil(that.params.total / that.params.page_size);
+                }, function (res) {
+
+                });
+            },
+            //处理分页参数
+            dealPageNum: function () {
+                var w_height = $(window).height();
+                var head = $(".el-table__header-wrapper").height();
+                var footer = $(".el-table__footer-wrapper").height();
+                var cell = 28;
+                w_height = w_height-head-footer-20;
+                this.params.page_size = w_height/cell>>0;
+                //每次调用页面数加一
+                this.params.page_num += 1;
+                //如果当前页数大于最大页数就至为第一页
+                if (this.params.page_num > this.max_page) {
+                    this.params.page_num = 1;
+                }
+            },
+            exitFullScreen: function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                } else if (document.msRequestExitFullscreen) {
+                    document.msRequestExitFullscreen();
+                }
+            },
+            gotoFullScreen: function () {
+                var docElm = document.documentElement;
+                //W3C
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                //FireFox
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                //Chrome等
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+                //IE11
+                else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+        }
+    });
+</script>

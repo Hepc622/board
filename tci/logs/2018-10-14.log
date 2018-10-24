@@ -1,0 +1,384 @@
+2018-10-14 00:10:55,279 DEBUG   : into:get_data
+2018-10-14 00:10:55,279 DEBUG   : into:get_data
+2018-10-14 00:10:55,279 DEBUG   : into:get_data
+2018-10-14 00:10:55,281 DEBUG   : out:get_data
+2018-10-14 00:10:55,281 DEBUG   : out:get_data
+2018-10-14 00:10:55,281 DEBUG   : out:get_data
+2018-10-14 00:10:55,282 DEBUG   : time:0.0020003318786621094
+2018-10-14 00:10:55,282 DEBUG   : time:0.0020003318786621094
+2018-10-14 00:10:55,282 DEBUG   : time:0.0020003318786621094
+2018-10-14 00:10:57,685 DEBUG   : into:get_data
+2018-10-14 00:10:57,685 DEBUG   : into:get_data
+2018-10-14 00:10:57,685 DEBUG   : into:get_data
+2018-10-14 00:10:57,685 DEBUG   : out:get_data
+2018-10-14 00:10:57,685 DEBUG   : out:get_data
+2018-10-14 00:10:57,685 DEBUG   : out:get_data
+2018-10-14 00:10:57,686 DEBUG   : time:0.0
+2018-10-14 00:10:57,686 DEBUG   : time:0.0
+2018-10-14 00:10:57,686 DEBUG   : time:0.0
+2018-10-14 00:11:04,229 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:11:04,229 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:11:04,229 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:11:04,230 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:04,230 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:04,230 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:05,120 DEBUG   : close
+2018-10-14 00:11:05,120 DEBUG   : close
+2018-10-14 00:11:05,120 DEBUG   : close
+2018-10-14 00:11:05,575 DEBUG   : close
+2018-10-14 00:11:05,575 DEBUG   : close
+2018-10-14 00:11:05,575 DEBUG   : close
+2018-10-14 00:11:24,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:11:24,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:11:24,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:11:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:25,118 DEBUG   : close
+2018-10-14 00:11:25,118 DEBUG   : close
+2018-10-14 00:11:25,118 DEBUG   : close
+2018-10-14 00:11:25,578 DEBUG   : close
+2018-10-14 00:11:25,578 DEBUG   : close
+2018-10-14 00:11:25,578 DEBUG   : close
+2018-10-14 00:11:44,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:11:44,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:11:44,536 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:11:44,537 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:44,537 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:44,537 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:11:45,182 DEBUG   : close
+2018-10-14 00:11:45,182 DEBUG   : close
+2018-10-14 00:11:45,182 DEBUG   : close
+2018-10-14 00:11:45,700 DEBUG   : close
+2018-10-14 00:11:45,700 DEBUG   : close
+2018-10-14 00:11:45,700 DEBUG   : close
+2018-10-14 00:12:04,535 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 51
+2018-10-14 00:12:04,535 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 51
+2018-10-14 00:12:04,535 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 51
+2018-10-14 00:12:04,536 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:04,536 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:04,536 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:05,262 DEBUG   : close
+2018-10-14 00:12:05,262 DEBUG   : close
+2018-10-14 00:12:05,262 DEBUG   : close
+2018-10-14 00:12:05,779 DEBUG   : close
+2018-10-14 00:12:05,779 DEBUG   : close
+2018-10-14 00:12:05,779 DEBUG   : close
+2018-10-14 00:12:24,537 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 68
+2018-10-14 00:12:24,537 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 68
+2018-10-14 00:12:24,537 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 68
+2018-10-14 00:12:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:24,538 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:33,014 DEBUG   : close
+2018-10-14 00:12:33,014 DEBUG   : close
+2018-10-14 00:12:33,014 DEBUG   : close
+2018-10-14 00:12:33,670 DEBUG   : close
+2018-10-14 00:12:33,670 DEBUG   : close
+2018-10-14 00:12:33,670 DEBUG   : close
+2018-10-14 00:12:35,737 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:12:35,737 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:12:35,737 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 0
+2018-10-14 00:12:35,737 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:35,737 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:35,737 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:36,307 DEBUG   : close
+2018-10-14 00:12:36,307 DEBUG   : close
+2018-10-14 00:12:36,307 DEBUG   : close
+2018-10-14 00:12:36,764 DEBUG   : close
+2018-10-14 00:12:36,764 DEBUG   : close
+2018-10-14 00:12:36,764 DEBUG   : close
+2018-10-14 00:12:56,052 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:12:56,052 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:12:56,052 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 17
+2018-10-14 00:12:56,053 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:56,053 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:56,053 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:12:56,777 DEBUG   : close
+2018-10-14 00:12:56,777 DEBUG   : close
+2018-10-14 00:12:56,777 DEBUG   : close
+2018-10-14 00:12:57,231 DEBUG   : close
+2018-10-14 00:12:57,231 DEBUG   : close
+2018-10-14 00:12:57,231 DEBUG   : close
+2018-10-14 00:13:29,419 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:13:29,419 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:13:29,419 DEBUG   : SELECT TOP 17 B.* FROM (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) B WHERE B.ZROW > 34
+2018-10-14 00:13:29,420 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:13:29,420 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:13:29,420 DEBUG   : SELECT count(1) total from (select  ZROW = ROW_NUMBER() OVER(Order by  MJ027, MJ002 )      ,ME002                                                  ,MJ002=rtrim(MJ002)                                     ,MJ006=rtrim(MJ006)                                     ,MI002=rtrim(MI002)                                     ,OG009=rtrim(isnull(OG009,''))                          ,SS004=isnull(SS004,0)                                  ,ZP005                                                  ,TA006                                                  ,Zroute= SUBSTRING(ZP001,22,3)                          ,ZSEQ=SUBSTRING(ZP001,26,len(rtrim(ZP001))-25)          FROM  EQTMJ LEFT JOIN  EQTMI     ON MJ030=MI001 LEFT JOIN  ZCLASSLOG ON MJ002=OG001  AND OG005='2018-10-14' LEFT JOIN  ZCLASS    ON OG004 =SS001 left join  CMSME     ON ME001=MJ027 left join  (select ZP001,ZP002,ZP006,ZP005 FROM ZPOPE group by ZP001,ZP002,ZP006,ZP005) ZPOPE     on MJ002=ZP006   and ZP002='2018-10-14'      left join  MOCTA     on LEFT(ZP001,4)=TA001 AND SUBSTRING(ZP001,6,11)=TA002 WHERE   EQTMJ.UDF07 in ('A','B')) as A
+2018-10-14 00:13:30,042 DEBUG   : close
+2018-10-14 00:13:30,042 DEBUG   : close
+2018-10-14 00:13:30,042 DEBUG   : close
+2018-10-14 00:13:30,513 DEBUG   : close
+2018-10-14 00:13:30,513 DEBUG   : close
+2018-10-14 00:13:30,513 DEBUG   : close
+2018-10-14 00:13:36,592 DEBUG   : into:get_data
+2018-10-14 00:13:36,592 DEBUG   : into:get_data
+2018-10-14 00:13:36,592 DEBUG   : into:get_data
+2018-10-14 00:13:36,593 DEBUG   : out:get_data
+2018-10-14 00:13:36,593 DEBUG   : out:get_data
+2018-10-14 00:13:36,593 DEBUG   : out:get_data
+2018-10-14 00:13:36,593 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:13:36,593 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:13:36,593 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:13:50,096 DEBUG   : close
+2018-10-14 00:13:50,096 DEBUG   : close
+2018-10-14 00:13:50,096 DEBUG   : close
+2018-10-14 00:13:50,579 DEBUG   : close
+2018-10-14 00:13:50,579 DEBUG   : close
+2018-10-14 00:13:50,579 DEBUG   : close
+2018-10-14 00:13:59,184 DEBUG   : into:get_data
+2018-10-14 00:13:59,184 DEBUG   : into:get_data
+2018-10-14 00:13:59,184 DEBUG   : into:get_data
+2018-10-14 00:13:59,185 DEBUG   : out:get_data
+2018-10-14 00:13:59,185 DEBUG   : out:get_data
+2018-10-14 00:13:59,185 DEBUG   : out:get_data
+2018-10-14 00:13:59,185 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:13:59,185 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:13:59,185 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:14:02,108 DEBUG   : into:get_data
+2018-10-14 00:14:02,108 DEBUG   : into:get_data
+2018-10-14 00:14:02,108 DEBUG   : into:get_data
+2018-10-14 00:14:02,108 DEBUG   : out:get_data
+2018-10-14 00:14:02,108 DEBUG   : out:get_data
+2018-10-14 00:14:02,108 DEBUG   : out:get_data
+2018-10-14 00:14:02,109 DEBUG   : time:0.0
+2018-10-14 00:14:02,109 DEBUG   : time:0.0
+2018-10-14 00:14:02,109 DEBUG   : time:0.0
+2018-10-14 00:14:03,799 DEBUG   : into:get_data
+2018-10-14 00:14:03,799 DEBUG   : into:get_data
+2018-10-14 00:14:03,799 DEBUG   : into:get_data
+2018-10-14 00:14:03,800 DEBUG   : out:get_data
+2018-10-14 00:14:03,800 DEBUG   : out:get_data
+2018-10-14 00:14:03,800 DEBUG   : out:get_data
+2018-10-14 00:14:03,800 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:14:03,800 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:14:03,800 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:14:10,072 DEBUG   : close
+2018-10-14 00:14:10,072 DEBUG   : close
+2018-10-14 00:14:10,072 DEBUG   : close
+2018-10-14 00:14:26,009 DEBUG   : close
+2018-10-14 00:14:26,009 DEBUG   : close
+2018-10-14 00:14:26,009 DEBUG   : close
+2018-10-14 00:14:26,515 DEBUG   : close
+2018-10-14 00:14:26,515 DEBUG   : close
+2018-10-14 00:14:26,515 DEBUG   : close
+2018-10-14 00:14:46,277 DEBUG   : close
+2018-10-14 00:14:46,277 DEBUG   : close
+2018-10-14 00:14:46,277 DEBUG   : close
+2018-10-14 00:14:46,874 DEBUG   : close
+2018-10-14 00:14:46,874 DEBUG   : close
+2018-10-14 00:14:46,874 DEBUG   : close
+2018-10-14 00:14:57,203 DEBUG   : into:get_data
+2018-10-14 00:14:57,203 DEBUG   : into:get_data
+2018-10-14 00:14:57,203 DEBUG   : into:get_data
+2018-10-14 00:14:57,203 DEBUG   : out:get_data
+2018-10-14 00:14:57,203 DEBUG   : out:get_data
+2018-10-14 00:14:57,203 DEBUG   : out:get_data
+2018-10-14 00:14:57,204 DEBUG   : time:0.0
+2018-10-14 00:14:57,204 DEBUG   : time:0.0
+2018-10-14 00:14:57,204 DEBUG   : time:0.0
+2018-10-14 00:15:06,377 DEBUG   : close
+2018-10-14 00:15:06,377 DEBUG   : close
+2018-10-14 00:15:06,377 DEBUG   : close
+2018-10-14 00:15:06,857 DEBUG   : close
+2018-10-14 00:15:06,857 DEBUG   : close
+2018-10-14 00:15:06,857 DEBUG   : close
+2018-10-14 00:15:26,257 DEBUG   : close
+2018-10-14 00:15:26,257 DEBUG   : close
+2018-10-14 00:15:26,257 DEBUG   : close
+2018-10-14 00:15:26,777 DEBUG   : close
+2018-10-14 00:15:26,777 DEBUG   : close
+2018-10-14 00:15:26,777 DEBUG   : close
+2018-10-14 00:15:46,275 DEBUG   : close
+2018-10-14 00:15:46,275 DEBUG   : close
+2018-10-14 00:15:46,275 DEBUG   : close
+2018-10-14 00:15:46,822 DEBUG   : close
+2018-10-14 00:15:46,822 DEBUG   : close
+2018-10-14 00:15:46,822 DEBUG   : close
+2018-10-14 00:16:05,154 DEBUG   : into:get_data
+2018-10-14 00:16:05,154 DEBUG   : into:get_data
+2018-10-14 00:16:05,154 DEBUG   : into:get_data
+2018-10-14 00:16:05,155 DEBUG   : out:get_data
+2018-10-14 00:16:05,155 DEBUG   : out:get_data
+2018-10-14 00:16:05,155 DEBUG   : out:get_data
+2018-10-14 00:16:05,155 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:16:05,155 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:16:05,155 DEBUG   : time:0.0010001659393310547
+2018-10-14 00:16:06,450 DEBUG   : close
+2018-10-14 00:16:06,450 DEBUG   : close
+2018-10-14 00:16:06,450 DEBUG   : close
+2018-10-14 00:16:06,990 DEBUG   : close
+2018-10-14 00:16:06,990 DEBUG   : close
+2018-10-14 00:16:06,990 DEBUG   : close
+2018-10-14 00:16:15,420 DEBUG   : close
+2018-10-14 00:16:15,420 DEBUG   : close
+2018-10-14 00:16:15,420 DEBUG   : close
+2018-10-14 00:16:15,875 DEBUG   : close
+2018-10-14 00:16:15,875 DEBUG   : close
+2018-10-14 00:16:15,875 DEBUG   : close
+2018-10-14 00:16:38,885 DEBUG   : into:get_data
+2018-10-14 00:16:38,885 DEBUG   : into:get_data
+2018-10-14 00:16:38,885 DEBUG   : into:get_data
+2018-10-14 00:16:38,886 DEBUG   : out:get_data
+2018-10-14 00:16:38,886 DEBUG   : out:get_data
+2018-10-14 00:16:38,886 DEBUG   : out:get_data
+2018-10-14 00:16:38,886 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:16:38,886 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:16:38,886 DEBUG   : time:0.0009999275207519531
+2018-10-14 00:16:43,957 DEBUG   : close
+2018-10-14 00:16:43,957 DEBUG   : close
+2018-10-14 00:16:43,957 DEBUG   : close
+2018-10-14 00:16:44,390 DEBUG   : close
+2018-10-14 00:16:44,390 DEBUG   : close
+2018-10-14 00:16:44,390 DEBUG   : close
+2018-10-14 00:17:04,327 DEBUG   : close
+2018-10-14 00:17:04,327 DEBUG   : close
+2018-10-14 00:17:04,327 DEBUG   : close
+2018-10-14 00:17:04,764 DEBUG   : close
+2018-10-14 00:17:04,764 DEBUG   : close
+2018-10-14 00:17:04,764 DEBUG   : close
+2018-10-14 00:17:24,453 DEBUG   : close
+2018-10-14 00:17:24,453 DEBUG   : close
+2018-10-14 00:17:24,453 DEBUG   : close
+2018-10-14 00:17:24,892 DEBUG   : close
+2018-10-14 00:17:24,892 DEBUG   : close
+2018-10-14 00:17:24,892 DEBUG   : close
+2018-10-14 00:17:33,000 DEBUG   : close
+2018-10-14 00:17:33,000 DEBUG   : close
+2018-10-14 00:17:33,000 DEBUG   : close
+2018-10-14 00:17:33,515 DEBUG   : close
+2018-10-14 00:17:33,515 DEBUG   : close
+2018-10-14 00:17:33,515 DEBUG   : close
+2018-10-14 00:17:53,312 DEBUG   : close
+2018-10-14 00:17:53,312 DEBUG   : close
+2018-10-14 00:17:53,312 DEBUG   : close
+2018-10-14 00:17:53,880 DEBUG   : close
+2018-10-14 00:17:53,880 DEBUG   : close
+2018-10-14 00:17:53,880 DEBUG   : close
+2018-10-14 00:18:13,249 DEBUG   : close
+2018-10-14 00:18:13,249 DEBUG   : close
+2018-10-14 00:18:13,249 DEBUG   : close
+2018-10-14 00:18:13,749 DEBUG   : close
+2018-10-14 00:18:13,749 DEBUG   : close
+2018-10-14 00:18:13,749 DEBUG   : close
+2018-10-14 00:18:33,282 DEBUG   : close
+2018-10-14 00:18:33,282 DEBUG   : close
+2018-10-14 00:18:33,282 DEBUG   : close
+2018-10-14 00:18:33,718 DEBUG   : close
+2018-10-14 00:18:33,718 DEBUG   : close
+2018-10-14 00:18:33,718 DEBUG   : close
+2018-10-14 00:18:53,188 DEBUG   : close
+2018-10-14 00:18:53,188 DEBUG   : close
+2018-10-14 00:18:53,188 DEBUG   : close
+2018-10-14 00:18:53,623 DEBUG   : close
+2018-10-14 00:18:53,623 DEBUG   : close
+2018-10-14 00:18:53,623 DEBUG   : close
+2018-10-14 00:19:13,031 DEBUG   : close
+2018-10-14 00:19:13,031 DEBUG   : close
+2018-10-14 00:19:13,031 DEBUG   : close
+2018-10-14 00:19:13,592 DEBUG   : close
+2018-10-14 00:19:13,592 DEBUG   : close
+2018-10-14 00:19:13,592 DEBUG   : close
+2018-10-14 00:19:33,223 DEBUG   : close
+2018-10-14 00:19:33,223 DEBUG   : close
+2018-10-14 00:19:33,223 DEBUG   : close
+2018-10-14 00:19:33,734 DEBUG   : close
+2018-10-14 00:19:33,734 DEBUG   : close
+2018-10-14 00:19:33,734 DEBUG   : close
+2018-10-14 00:19:53,391 DEBUG   : close
+2018-10-14 00:19:53,391 DEBUG   : close
+2018-10-14 00:19:53,391 DEBUG   : close
+2018-10-14 00:19:53,827 DEBUG   : close
+2018-10-14 00:19:53,827 DEBUG   : close
+2018-10-14 00:19:53,827 DEBUG   : close
+2018-10-14 00:20:13,232 DEBUG   : close
+2018-10-14 00:20:13,232 DEBUG   : close
+2018-10-14 00:20:13,232 DEBUG   : close
+2018-10-14 00:20:13,744 DEBUG   : close
+2018-10-14 00:20:13,744 DEBUG   : close
+2018-10-14 00:20:13,744 DEBUG   : close
+2018-10-14 00:20:33,300 DEBUG   : close
+2018-10-14 00:20:33,300 DEBUG   : close
+2018-10-14 00:20:33,300 DEBUG   : close
+2018-10-14 00:20:33,797 DEBUG   : close
+2018-10-14 00:20:33,797 DEBUG   : close
+2018-10-14 00:20:33,797 DEBUG   : close
+2018-10-14 00:20:53,556 DEBUG   : close
+2018-10-14 00:20:53,556 DEBUG   : close
+2018-10-14 00:20:53,556 DEBUG   : close
+2018-10-14 00:20:54,088 DEBUG   : close
+2018-10-14 00:20:54,088 DEBUG   : close
+2018-10-14 00:20:54,088 DEBUG   : close
+2018-10-14 00:21:13,340 DEBUG   : close
+2018-10-14 00:21:13,340 DEBUG   : close
+2018-10-14 00:21:13,340 DEBUG   : close
+2018-10-14 00:21:13,837 DEBUG   : close
+2018-10-14 00:21:13,837 DEBUG   : close
+2018-10-14 00:21:13,837 DEBUG   : close
+2018-10-14 00:21:33,009 DEBUG   : close
+2018-10-14 00:21:33,009 DEBUG   : close
+2018-10-14 00:21:33,009 DEBUG   : close
+2018-10-14 00:21:33,446 DEBUG   : close
+2018-10-14 00:21:33,446 DEBUG   : close
+2018-10-14 00:21:33,446 DEBUG   : close
+2018-10-14 00:21:53,324 DEBUG   : close
+2018-10-14 00:21:53,324 DEBUG   : close
+2018-10-14 00:21:53,324 DEBUG   : close
+2018-10-14 00:21:53,822 DEBUG   : close
+2018-10-14 00:21:53,822 DEBUG   : close
+2018-10-14 00:21:53,822 DEBUG   : close
+2018-10-14 00:22:13,151 DEBUG   : close
+2018-10-14 00:22:13,151 DEBUG   : close
+2018-10-14 00:22:13,151 DEBUG   : close
+2018-10-14 00:22:13,572 DEBUG   : close
+2018-10-14 00:22:13,572 DEBUG   : close
+2018-10-14 00:22:13,572 DEBUG   : close
+2018-10-14 00:22:25,807 DEBUG   : close
+2018-10-14 00:22:25,807 DEBUG   : close
+2018-10-14 00:22:25,807 DEBUG   : close
+2018-10-14 00:22:26,245 DEBUG   : close
+2018-10-14 00:22:26,245 DEBUG   : close
+2018-10-14 00:22:26,245 DEBUG   : close
+2018-10-14 00:22:33,449 DEBUG   : close
+2018-10-14 00:22:33,449 DEBUG   : close
+2018-10-14 00:22:33,449 DEBUG   : close
+2018-10-14 00:22:33,947 DEBUG   : close
+2018-10-14 00:22:33,947 DEBUG   : close
+2018-10-14 00:22:33,947 DEBUG   : close
+2018-10-14 00:22:53,948 DEBUG   : close
+2018-10-14 00:22:53,948 DEBUG   : close
+2018-10-14 00:22:53,948 DEBUG   : close
+2018-10-14 00:22:54,447 DEBUG   : close
+2018-10-14 00:22:54,447 DEBUG   : close
+2018-10-14 00:22:54,447 DEBUG   : close
+2018-10-14 00:23:14,355 DEBUG   : close
+2018-10-14 00:23:14,355 DEBUG   : close
+2018-10-14 00:23:14,355 DEBUG   : close
+2018-10-14 00:23:14,786 DEBUG   : close
+2018-10-14 00:23:14,786 DEBUG   : close
+2018-10-14 00:23:14,786 DEBUG   : close
+2018-10-14 00:23:34,422 DEBUG   : close
+2018-10-14 00:23:34,422 DEBUG   : close
+2018-10-14 00:23:34,422 DEBUG   : close
+2018-10-14 00:23:34,868 DEBUG   : close
+2018-10-14 00:23:34,868 DEBUG   : close
+2018-10-14 00:23:34,868 DEBUG   : close
+2018-10-14 00:23:54,448 DEBUG   : close
+2018-10-14 00:23:54,448 DEBUG   : close
+2018-10-14 00:23:54,448 DEBUG   : close
+2018-10-14 00:23:54,947 DEBUG   : close
+2018-10-14 00:23:54,947 DEBUG   : close
+2018-10-14 00:23:54,947 DEBUG   : close
+2018-10-14 00:24:14,417 DEBUG   : close
+2018-10-14 00:24:14,417 DEBUG   : close
+2018-10-14 00:24:14,417 DEBUG   : close
+2018-10-14 00:24:14,854 DEBUG   : close
+2018-10-14 00:24:14,854 DEBUG   : close
+2018-10-14 00:24:14,854 DEBUG   : close
+2018-10-14 00:24:34,088 DEBUG   : close
+2018-10-14 00:24:34,088 DEBUG   : close
+2018-10-14 00:24:34,088 DEBUG   : close
+2018-10-14 00:24:35,121 DEBUG   : close
+2018-10-14 00:24:35,121 DEBUG   : close
+2018-10-14 00:24:35,121 DEBUG   : close
