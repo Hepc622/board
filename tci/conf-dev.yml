@@ -22,10 +22,10 @@ sys:
     device_unusual: 
         # 设备产能异常看板
         - "SELECT * FROM [dbo].[ZboardMachine] ('%s')"
-        - ""
-        - ""
+        - "select COUNT(*) as NUM from [dbo].[ZboardMachine]('%s') where MachineRate>=90 and MachineRate<=100"
+        - "select COUNT(*) as NUM from [dbo].[ZboardMachine]('%s') where MachineRate<90 and MachineRate>100"
     person_unusual:
         # 人员产能异常看板
         - "SELECT * FROM [dbo].[ZboardPerson] ('%s')"
-        - ""
-        - ""
+        - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE WorkTimeDoneRate >=90 and WorkTimeDoneRate <=100"
+        - "select COUNT(*) as NUM from dbo.ZboardPerson('20181023') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "

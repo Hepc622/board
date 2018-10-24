@@ -57,9 +57,13 @@ def device_unusual():
     base_sql = conf.get("sys")['sql']['device_unusual'][0] % (current_time)
     page_sql = "SELECT TOP %d B.* FROM (%s) B WHERE B.ZROW > %d" % (page_size, base_sql, page_num)
     count_sql = "SELECT count(1) total from (%s) as A" % (base_sql)
+    uaual_count = conf.get("sys")["sql"]['device_unusual'][1] %(current_time)
+    unuaual_count = conf.get("sys")["sql"]['device_unusual'][2] %(current_time)
     data = {}
     data['data'] = connect.select_all(page_sql)
     data['total'] = connect.select_all(count_sql)[0].get("total")
+    data["uaual"] = connect.select_all(uaual_count)
+    data["unusual"] = connect.select_all(unuaual_count)
     lock.release()
     return json.dumps(data)
 
@@ -78,9 +82,13 @@ def person_unusual():
     current_time = time.strftime("%Y%m%d", time.localtime(time.time()-86400))
     base_sql = conf.get("sys")['sql']['person_unusual'][0] % (current_time)
     page_sql = "SELECT TOP %d B.* FROM (%s) B WHERE B.ZROW > %d" % (page_size, base_sql, page_num)
+    uaual_count = conf.get("sys")["sql"]['person_unusual'][1] %(current_time)
+    unuaual_count = conf.get("sys")["sql"]['person_unusual'][2] %(current_time)
     data = {}
     data['data'] = connect.select_all(page_sql)
     data['total'] = connect.select_all(count_sql)[0].get("total")
+    data["uaual"] = connect.select_all(uaual_count)
+    data["unusual"] = connect.select_all(unuaual_count)
     lock.release()
     return json.dumps(data)
 

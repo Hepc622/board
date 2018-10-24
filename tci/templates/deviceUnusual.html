@@ -227,8 +227,8 @@
                 Ajax.post("/deviceUnusual", this.params,function (res) {
                     that.tableData = res.data;
                     that.params.total = res.total;
-                    that.usual="工时完成正常 "+res.run_stop[2].NUM+" 台";
-                    that.unusual="工时完成异常 "+res.run_stop[1].NUM+" 台";
+                    that.usual="工时完成正常 "+res.uaual.NUM+" 台";
+                    that.unusual="工时完成异常 "+res.unuaual.NUM+" 台";
                     //重新设置一下max_page
                     that.max_page = Math.ceil(that.params.total / that.params.page_size);
                 }, function (res) {
