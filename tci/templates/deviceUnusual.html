@@ -24,7 +24,6 @@
 		<el-table-column label="MES_设备产能异常看板"></el-table-column>
 	    <el-table-column :label="usual"></el-table-column>
     	<el-table-column :label="unusual"></el-table-column>
-		<el-table-column label=""></el-table-column>
 		<el-table-column :label="time"></el-table-column>
 	</el-table>
         <el-table
@@ -198,25 +197,15 @@
             tableRowClassName: function (obj) {
                 var row, rowIndex;
                 row = obj.row;
-                var ZQTY = row["MI002"]
-                var TA006 = row["TA006"]
-                if(TA006){
-                    if (ZQTY == '正常运行') {
-                        return 'running-row';
-                    } else if (ZQTY == '故障停机') {
-                        return 'stop-row';
-                    } else if (ZQTY == '故障维修'){
-                        return 'fix-row'
-                    }
+                var timeDone = row['TimeDone']
+                if(timeDone<90){
+                    return "other-row"
+                }else if(timeDone>110){
+                    return "stop-row"
                 }else{
-                    if (ZQTY == '正常运行') {
-                        return 'other-row';
-                    } else if (ZQTY == '故障停机') {
-                        return 'stop-row';
-                    } else if (ZQTY == '故障维修'){
-                        return 'fix-row'
-                    }
+                    return "running-row"
                 }
+                
             },
             //获取数据
             getData: function () {
@@ -227,8 +216,8 @@
                 Ajax.post("/deviceUnusual", this.params,function (res) {
                     that.tableData = res.data;
                     that.params.total = res.total;
-                    that.usual="工时完成正常 "+res.uaual.NUM+" 台";
-                    that.unusual="工时完成异常 "+res.unuaual.NUM+" 台";
+                    that.usual="工时完成正常 "+res.usual[0].NUM+" 台";
+                    that.unusual="工时完成异常 "+res.unusual[0].NUM+" 台";
                     //重新设置一下max_page
                     that.max_page = Math.ceil(that.params.total / that.params.page_size);
                 }, function (res) {
