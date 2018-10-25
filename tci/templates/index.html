@@ -263,8 +263,8 @@
                 Ajax.post("/deviceMachining", this.params,function (res) {
                     that.tableData = res.data;
                     that.params.total = res.total;
-                    that.work="主要设备 "+res.run_stop[2].NUM+" 台";
-                    that.stop="停机设备 "+res.run_stop[1].NUM+" 台";
+                    that.work="主要设备 "+res.run_stop[1].NUM+" 台";
+                    that.stop="停机设备 "+res.run_stop[2].NUM+" 台";
                     that.down="无开工设备 "+res.not_work["0"].NUM+" 台";
                     //重新设置一下max_page
                     that.max_page = Math.ceil(that.params.total / that.params.page_size);
