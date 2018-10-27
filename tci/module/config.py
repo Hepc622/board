@@ -6,7 +6,8 @@ import yaml
 
 class Config(object):
     conf=None
-
+    # 单例对象
+    config=None
     def __init_config(self):
         if self.conf is None:
             self.conf = dict()
@@ -31,18 +32,30 @@ class Config(object):
                     self.conf["web"] = web
                     self.conf["sys"] = sys
                     # 初始化默认配置
-                    if db.get('server') is None:
-                        self.conf["db"]['server'] = 'localhost'
-                    if db.get('port') is None:
-                       self.conf["db"]['port'] = 1433
-                    if db.get('user') is None:
-                        self.conf["db"]['user'] = 'sa'
-                    if db.get('password') is None:
-                        self.conf["db"]['password'] = ''
-                    if db.get('database') is None:
+                    if self.conf["db"].get('kind') is None:
+                        self.conf["db"]["kind"] = 'mysql'
+                    if self.conf["db"].get('user') is None:
+                        self.conf["db"]['user'] = 'root'
+                    if self.conf["db"].get('password') is None:
+                        self.conf["db"]['password'] = '123456'
+                    if self.conf["db"].get('database') is None:
                         self.conf["db"]['database'] = 'db'
-                    if db.get('charset') is None:
+                    if self.conf["db"].get('host') is None:
+                        self.conf["db"]['host'] = 'localhost'
+                    if self.conf["db"].get('port') is None:
+                        self.conf["db"]['port'] = 3306
+                    if self.conf["db"].get('charset') is None:
                         self.conf["db"]['charset'] = 'utf8'
+                    if self.conf["db"].get('maxPoolSize') is None:
+                        self.conf["db"]['maxPoolSize'] = 20
+                    if self.conf["db"].get('minPoolSize') is None:
+                        self.conf["db"]['minPoolSize'] = 1
+                    if self.conf["db"].get('initPoolSize') is None:
+                        self.conf["db"]['initPoolSize'] = 3
+                    if self.conf["db"].get('waitTime') is None:
+                        self.conf["db"]['waitTime'] = 0.005
+                    if self.conf["db"].get('autoCommitOnClose') is None:
+                        self.conf["db"]['autoCommitOnClose'] = False
 
                     # web配置
                     if web.get('host') is None:
@@ -57,5 +70,7 @@ class Config(object):
                         self.conf['sys']["sql"]={}
 
     def __new__(cls, *args, **kwargs):
-        cls.__init_config(cls)
-        return object.__new__(cls)
+        if cls.config is None:
+            cls.__init_config(cls)
+            cls.config=object.__new__(cls)
+        return cls.config.conf

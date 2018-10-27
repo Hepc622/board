@@ -1,6 +1,8 @@
 #数据库配置
 db:
-  server: 540a1ebd.all123.net
+  kind: sqlserver
+  host: 540a1ebd.all123.net
+  port: 1433
   user: sa
   password: ccwen
   database: TCI

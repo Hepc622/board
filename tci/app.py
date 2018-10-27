@@ -4,8 +4,12 @@
 
 from flask import Flask, send_file
 from module.config import Config
+from module.connect_pool import ConnectPool
 from module.controller import bc
-conf = Config().conf
+conf = Config()
+# 初始化连接池
+ConnectPool()
+
 app = Flask(__name__)
 app.register_blueprint(bc)
 

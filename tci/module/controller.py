@@ -1,7 +1,7 @@
 ﻿from flask import Blueprint, json, request
 
 from module.logger import *
-from module.db import Connect
+from module.connect_pool import ConnectPool
 from module.config import Config
 import threading
 import time
@@ -9,8 +9,7 @@ import time
 log = get_logger()
 bc = Blueprint('bc', __name__)
 lock = threading.Lock()
-connect = Connect()
-conf = Config().conf
+conf = Config()
 
 
 # 设备加工看板
@@ -34,15 +33,17 @@ def device_machining():
     # 排产无开工设备台数
     c_not_work = conf.get("sys")["sql"]['device_machining'][2] %(current_time)
     data = {}
+    connect = ConnectPool().get_connect()
     data['data'] = connect.select_all(page_sql)
     data['total'] = connect.select_all(count_sql)[0].get("total")
     data["run_stop"] = connect.select_all(c_run_stop)
     data["not_work"] = connect.select_all(c_not_work)
+    connect.close()
     lock.release()
     return json.dumps(data)
 
 # 设备产能异常看板
-@logger
+# @logger
 @bc.route("/deviceUnusual", methods=["POST"])
 def device_unusual():
     lock.acquire()
@@ -60,10 +61,12 @@ def device_unusual():
     usual_count = conf.get("sys")["sql"]['device_unusual'][1] %(current_time)
     unusual_count = conf.get("sys")["sql"]['device_unusual'][2] %(current_time)
     data = {}
+    connect = ConnectPool().get_connect()
     data['data'] = connect.select_all(page_sql)
     data['total'] = connect.select_all(count_sql)[0].get("total")
     data["usual"] = connect.select_all(usual_count)
     data["unusual"] = connect.select_all(unusual_count)
+    connect.close();
     lock.release()
     return json.dumps(data)
 
@@ -86,10 +89,12 @@ def person_unusual():
     usual_count = conf.get("sys")["sql"]['person_unusual'][1] %(current_time)
     unusual_count = conf.get("sys")["sql"]['person_unusual'][2] %(current_time)
     data = {}
+    connect = ConnectPool().get_connect()
     data['data'] = connect.select_all(page_sql)
     data['total'] = connect.select_all(count_sql)[0].get("total")
     data["usual"] = connect.select_all(usual_count)
     data["unusual"] = connect.select_all(unusual_count)
+    connect.close();
     lock.release()
     return json.dumps(data)
 
