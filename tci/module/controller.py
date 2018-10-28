@@ -16,9 +16,8 @@ conf = Config()
 @logger
 @bc.route("/deviceMachining", methods=["POST"])
 def device_machining():
-    lock.acquire()
     # 获取参数
-    prams = request.json
+    prams = request.get_json()
     # 获取当前页
     page_num = int(prams.get("page_num")) - 1
     page_size = int(prams.get("page_size"))
@@ -39,14 +38,12 @@ def device_machining():
     data["run_stop"] = connect.select_all(c_run_stop)
     data["not_work"] = connect.select_all(c_not_work)
     connect.close()
-    lock.release()
     return json.dumps(data)
 
 # 设备产能异常看板
 # @logger
 @bc.route("/deviceUnusual", methods=["POST"])
 def device_unusual():
-    lock.acquire()
     # 获取参数
     prams = request.json
     # 获取当前页
@@ -67,14 +64,12 @@ def device_unusual():
     data["usual"] = connect.select_all(usual_count)
     data["unusual"] = connect.select_all(unusual_count)
     connect.close();
-    lock.release()
     return json.dumps(data)
 
 # 人员产能异常看板
 @logger
 @bc.route("/personUnusual", methods=["POST"])
 def person_unusual():
-    lock.acquire()
     # 获取参数
     prams = request.json
     # 获取当前页
@@ -95,6 +90,5 @@ def person_unusual():
     data["usual"] = connect.select_all(usual_count)
     data["unusual"] = connect.select_all(unusual_count)
     connect.close();
-    lock.release()
     return json.dumps(data)
 

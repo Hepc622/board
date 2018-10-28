@@ -142,12 +142,10 @@
     }
 </style>
 
-<!-- import Vue before Element -->
-<script src="../static/js/vue/vue.js"></script>
+
+<script src="../static/js/utils.js"></script>
 <!-- import JavaScript -->
 <script src="../static/js/element-ui/lib/index.js"></script>
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/ajax.js"></script>
 <script>
     var vue = new Vue({
         el: '#app',
@@ -221,7 +219,7 @@
                 this.dealPageNum()
                 //发起请求
                 var that = this;
-                Ajax.post("/deviceUnusual", this.params,function (res) {
+                utils.post("/deviceUnusual", this.params,function (res) {
                     that.tableData = res.data;
                     that.params.total = res.total;
                     that.usual="工时完成正常 "+res.usual[0].NUM+" 台";

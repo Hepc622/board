@@ -21,7 +21,7 @@ sys:
         - "select OG009,COUNT(*) as NUM FROM  dbo.ZboardMachineWork('%s') GROUP BY OG009"
         # 排产无开工设备台数
         - "select COUNT(*) as NUM  FROM  dbo.ZboardMachineWork('%s') WHERE TA006 is null"
-     device_unusual: 
+    device_unusual: 
         # 设备产能异常看板
         - "SELECT * FROM [dbo].[ZboardMachine] ('%s')"
         # 异常统计
