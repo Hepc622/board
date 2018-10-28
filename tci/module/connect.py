@@ -4,6 +4,7 @@
 import traceback
 from decimal import Decimal
 
+
 # 链接对象
 class Connect(object):
     # 链接对象
@@ -36,25 +37,24 @@ class Connect(object):
         self.__free = True
 
     # 查询所有
-    def select_all(self, sql, *params):
+    def select_all(self, sql):
         try:
-             # 获取当前游标的位置
+            # 获取当前游标的位置
             cursor = self.__connect.cursor()
             # 执行sql
             cursor.execute(sql)
             # 获取所有的列
             index = cursor.description
             result = []
-            rows = cursor.fetchall()
-            # 获取所有数据数据
-            for res in rows:
+            for rows in cursor:
+                # 组装当前行的字典数据
                 row = {}
-                for i in range(len(index)):
-                    data = res[i]
+                for i in range(len(rows)):
+                    data = rows[i]
+                    # 如果是数字对象转为int
                     if type(data) == Decimal:
                         data = int(data)
-                    row[index[i][0]] = data
-
+                    row[index[i][0]]=data
                 result.append(row)
         except Exception:
             traceback.print_exc()
@@ -64,7 +64,7 @@ class Connect(object):
         return result
 
         # 插入数据
-    def insert(self, sql, *params):
+    def insert(self, sql):
         try:
             # 获取当前游标的位置
             cursor = self.__connect.cursor()

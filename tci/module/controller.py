@@ -41,7 +41,7 @@ def device_machining():
     return json.dumps(data)
 
 # 设备产能异常看板
-# @logger
+@logger
 @bc.route("/deviceUnusual", methods=["POST"])
 def device_unusual():
     # 获取参数

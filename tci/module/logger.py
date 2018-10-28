@@ -35,8 +35,9 @@ def logger(fn):
         log.debug("in params:" + str(args))
         result = fn(*args, **kwargs)
         log.debug("out params:" + str(result))
-        end = time.time()
         log.debug("out method:" + getattr(fn, '__name__'))
+        end = time.time()
         log.debug("time:" + str(end - begin))
+
         return result
     return inner

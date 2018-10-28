@@ -9,7 +9,7 @@ db:
 
 # web配置
 web:
-  port: 80
+  port: 8080
 
 # 系统配置
 sys:
