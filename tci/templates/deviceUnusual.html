@@ -75,7 +75,6 @@
                     label="设备维修">
             </el-table-column>
             <el-table-column
-                    prop="TimeDone"
                     align="center"
                     width="100"
                     :formatter="timeDone"
@@ -150,7 +149,7 @@
 <script src="../static/js/element-ui/lib/index.js"></script>
 <script>
     $(function(){
-        $("body").find("table").eq(1).find("th").css("background-color","#EBEEF5");
+        $("body").find("table").eq(0).find("th").css("background-color","#EBEEF5");
     });
     var vue = new Vue({
         el: '#app',
