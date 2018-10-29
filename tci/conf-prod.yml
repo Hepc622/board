@@ -34,4 +34,4 @@ sys:
         # 异常统计
         - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE WorkTimeDoneRate >=90 and WorkTimeDoneRate <=100"
         # 正常统计
-        - "select COUNT(*) as NUM from dbo.ZboardPerson('20181023') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "
+        - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "
