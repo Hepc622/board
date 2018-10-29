@@ -16,18 +16,19 @@
 <body style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;margin:3px">
 <div id="app">
     <template>
-	<el-table
-	  :default-expand-all="true"
-      style="width: 100%;">
-      	<template slot="empty">
-	    </template>
-		<el-table-column label="MES_设备加工看板"></el-table-column>
-	    <el-table-column :label="work"></el-table-column>
-    	<el-table-column :label="stop"></el-table-column>
-		<el-table-column :label="down"></el-table-column>
-		<el-table-column :label="time"></el-table-column>
-	</el-table>
+    	<el-table
+    	  :default-expand-all="true"
+          style="width: 100%;">
+          	<template slot="empty">
+    	    </template>
+    		<el-table-column label="MES_设备加工看板"></el-table-column>
+    	    <el-table-column :label="work"></el-table-column>
+        	<el-table-column :label="stop"></el-table-column>
+    		<el-table-column :label="down"></el-table-column>
+    		<el-table-column :label="time"></el-table-column>
+    	</el-table>
         <el-table
+                id="content"
                 style="width: 100%"
                 border
                 show-summary
@@ -37,13 +38,13 @@
             <el-table-column 
                      prop="ME002"
                      align="center"
-		    	     width="62"
+    	    	     width="62"
                      label="车间名称">
             </el-table-column>
             <el-table-column
                     prop="MJ002"
                     align="center"
-		            width="62"
+    	            width="62"
                     label="设备编号">
             </el-table-column>
              <el-table-column
@@ -54,7 +55,7 @@
             <el-table-column
                     prop="MI002"
                     align="center"
-		            width="62"
+    	            width="62"
                     label="设备状态">
     	    </el-table-column>
     	    <el-table-column
@@ -65,13 +66,13 @@
             </el-table-column>
             <el-table-column
                     prop="SS004"
-		            width="62"
+    	            width="62"
                     align="center"
                     label="工作时长">
             </el-table-column>
             <el-table-column
                     prop="ZP005"
-		            width="50"
+    	            width="50"
                     align="center"
                     label="操作工">
             </el-table-column>
@@ -97,7 +98,7 @@
                     width="62"
                     label="开工时间">
             </el-table-column>
-            </el-table>
+        </el-table>
     </template>
 </div>
 
@@ -132,7 +133,7 @@
 
     .el-table .other-row {
         /*background: #FFCC66;*/
-        color: orange;
+        color: black;
     }
     .el-table .fix-row {
         /*background: #FFCC66;*/
@@ -147,15 +148,20 @@
     .el-table td, .el-table th{
         padding: 2px 0; 
     }
+
     .el-table thead {
         color: black;
         /*font-size: 20px;*/
     }
+    
 </style>
 <script src="../static/js/utils.js"></script>
 <!-- import JavaScript -->
 <script src="../static/js/element-ui/lib/index.js"></script>
 <script>
+    $(function(){
+        $("body").find("table").eq(2).find("th").css("background-color","#EBEEF5");
+    });
     var vue = new Vue({
         el: '#app',
         data: function () {
