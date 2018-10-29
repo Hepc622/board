@@ -16,16 +16,16 @@
 <body style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;margin:3px">
 <div id="app">
     <template>
-	<el-table
-	  :default-expand-all="true"
-      style="width: 100%;">
-      	<template slot="empty">
-	    </template>
-		<el-table-column label="MES_人员产能异常看板"></el-table-column>
-	    <el-table-column :label="usual"></el-table-column>
-    	<el-table-column :label="unusual"></el-table-column>
-		<el-table-column :label="time"></el-table-column>
-	</el-table>
+    	<el-table
+    	  :default-expand-all="true"
+          style="width: 100%;">
+          	<template slot="empty">
+    	    </template>
+    		<el-table-column label="MES_人员产能异常看板"></el-table-column>
+    	    <el-table-column :label="usual"></el-table-column>
+        	<el-table-column :label="unusual"></el-table-column>
+    		<el-table-column :label="time"></el-table-column>
+    	</el-table>
         <el-table
                 style="width: 100%"
                 border
@@ -77,7 +77,7 @@
             <el-table-column
                     align="center"
                     width="100"
-                    prop="WorkTimeDoneRate"
+                    :formatter="overRatio"
                     label="工时完成率">
             </el-table-column>
         </el-table>
@@ -138,6 +138,9 @@
 <script src="../static/js/utils.js"></script>
 <script src="../static/js/element-ui/lib/index.js"></script>
 <script>
+    $(function(){
+        $("body").find("table").eq(1).find("th").css("background-color","#EBEEF5");
+    });
     var vue = new Vue({
         el: '#app',
         data: function () {
@@ -184,6 +187,16 @@
             setInterval(this.getData, this.delay_time);
         },
         methods: {
+            overRatio:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var ratio = row['WorkTimeDoneRate']
+                if(!ratio){
+                    return ratio+"%"
+                }else{
+                    return ratio
+                }
+            },
             getSummaries:function (param) {
                 var sums = ["总条数",this.params.total,
                     "总页数",Math.ceil(this.params.total/this.params.page_size),

@@ -28,7 +28,6 @@
     		<el-table-column :label="time"></el-table-column>
     	</el-table>
         <el-table
-                id="content"
                 style="width: 100%"
                 border
                 show-summary
@@ -160,7 +159,7 @@
 <script src="../static/js/element-ui/lib/index.js"></script>
 <script>
     $(function(){
-        $("body").find("table").eq(2).find("th").css("background-color","#EBEEF5");
+        $("body").find("table").eq(1).find("th").css("background-color","#EBEEF5");
     });
     var vue = new Vue({
         el: '#app',

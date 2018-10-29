@@ -16,16 +16,16 @@
 <body style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;margin:3px">
 <div id="app">
     <template>
-	<el-table
-	  :default-expand-all="true"
-      style="width: 100%;">
-      	<template slot="empty">
-	    </template>
-		<el-table-column label="MES_设备产能异常看板"></el-table-column>
-	    <el-table-column :label="usual"></el-table-column>
-    	<el-table-column :label="unusual"></el-table-column>
-		<el-table-column :label="time"></el-table-column>
-	</el-table>
+    	<el-table
+    	  :default-expand-all="true"
+          style="width: 100%;">
+          	<template slot="empty">
+    	    </template>
+    		<el-table-column label="MES_设备产能异常看板"></el-table-column>
+    	    <el-table-column :label="usual"></el-table-column>
+        	<el-table-column :label="unusual"></el-table-column>
+    		<el-table-column :label="time"></el-table-column>
+    	</el-table>
         <el-table
                 style="width: 100%"
                 border
@@ -78,12 +78,14 @@
                     prop="TimeDone"
                     align="center"
                     width="100"
+                    :formatter="timeDone"
                     label="工时完成率">
             </el-table-column>
             <el-table-column
                     prop="MachineRate"
                     align="center"
                     width="100"
+                    :formatter="machineRate"
                     label="设备利用率">
             </el-table-column>
         </el-table>
@@ -147,6 +149,9 @@
 <!-- import JavaScript -->
 <script src="../static/js/element-ui/lib/index.js"></script>
 <script>
+    $(function(){
+        $("body").find("table").eq(1).find("th").css("background-color","#EBEEF5");
+    });
     var vue = new Vue({
         el: '#app',
         data: function () {
@@ -193,6 +198,26 @@
             setInterval(this.getData, this.delay_time);
         },
         methods: {
+            timeDone:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var ratio = row['TimeDone']
+                if(!ratio){
+                    return ratio+"%"
+                }else{
+                    return ratio
+                }
+            },
+            machineRate:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var ratio = row['MachineRate']
+                if(!ratio){
+                    return ratio+"%"
+                }else{
+                    return ratio
+                }
+            },
             getSummaries:function (param) {
                 var sums = ["总条数",this.params.total,
                     "总页数",Math.ceil(this.params.total/this.params.page_size),
