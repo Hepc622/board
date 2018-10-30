@@ -57,13 +57,13 @@
                     label="工作时长">
             </el-table-column>
             <el-table-column
-                    prop="PayTime"
+                    :formatter="payTime"
                     align="center"
                     width="100"
                     label="计件工时">
             </el-table-column>
             <el-table-column
-                    prop="TestTime"
+                    :formatter="testTime"
                     align="center"
                     width="100"
                     label="调试工时">
@@ -122,7 +122,7 @@
 
     .el-table .other-row {
         /*background: #FFCC66;*/
-        color: orange;
+        color: black;
     }
     .el-table .fix-row {
         /*background: #FFCC66;*/
@@ -202,9 +202,29 @@
                 row = obj.row;
                 var ratio = row['TimeDone']
                 if(!ratio){
-                    return ratio+"%"
+                    return Number(ratio).toFixed(1)
                 }else{
-                    return ratio
+                    return "0"
+                }
+            },
+            payTime:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var payTime = row['payTime']
+                if(!payTime){
+                    return Number(payTime).toFixed(1)
+                }else{
+                    return "0"
+                }
+            },
+            testTime:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var testTime = row['testTime']
+                if(!testTime){
+                    return Number(testTime).toFixed(1)
+                }else{
+                    return "0"
                 }
             },
             machineRate:function(obj){
@@ -214,7 +234,7 @@
                 if(!ratio){
                     return ratio+"%"
                 }else{
-                    return ratio
+                    return "0%"
                 }
             },
             getSummaries:function (param) {

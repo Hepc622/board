@@ -50,11 +50,7 @@ class Connect(object):
                 # 组装当前行的字典数据
                 row = {}
                 for i in range(len(rows)):
-                    data = rows[i]
-                    # 如果是数字对象转为int
-                    if type(data) == Decimal:
-                        data = int(data)
-                    row[index[i][0]]=data
+                    row[index[i][0]]=rows[i]
                 result.append(row)
         except Exception:
             traceback.print_exc()

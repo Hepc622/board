@@ -63,16 +63,16 @@
                     label="工作时长">
             </el-table-column>
             <el-table-column
-                    prop="PayTime"
                     width="100"
                     align="center"
+                    :formatter="payTime"
                     label="计件工时">
             </el-table-column>
     	    <el-table-column
-                        prop="TestTime"
-                        width="100"
-                        align="center"
-                        label="调试工时">
+                    width="100"
+                    :formatter="testTime"
+                    align="center"
+                    label="调试工时">
             </el-table-column>
             <el-table-column
                     align="center"
@@ -115,7 +115,7 @@
 
     .el-table .other-row {
         /*background: #FFCC66;*/
-        color: orange;
+        color: black;
     }
     .el-table .fix-row {
         /*background: #FFCC66;*/
@@ -187,6 +187,26 @@
             setInterval(this.getData, this.delay_time);
         },
         methods: {
+            payTime:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var payTime = row['payTime']
+                if(!payTime){
+                    return Number(payTime).toFixed(1)
+                }else{
+                    return "0"
+                }
+            },
+            testTime:function(obj){
+                var row, rowIndex;
+                row = obj.row;
+                var testTime = row['testTime']
+                if(!testTime){
+                    return Number(testTime).toFixed(1)
+                }else{
+                    return "0"
+                }
+            },
             overRatio:function(obj){
                 var row, rowIndex;
                 row = obj.row;
