@@ -198,40 +198,32 @@
         },
         methods: {
             timeDone:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var ratio = row['TimeDone']
-                if(!ratio){
-                    return Number(ratio).toFixed(1)
+                var ratio = obj['TimeDone']
+                if(ratio){
+                    return Number(ratio)+"%"
                 }else{
-                    return "0"
+                    return "0%"
                 }
             },
             payTime:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var payTime = row['payTime']
-                if(!payTime){
+                var payTime = obj['PayTime']
+                if(payTime){
                     return Number(payTime).toFixed(1)
                 }else{
                     return "0"
                 }
             },
             testTime:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var testTime = row['testTime']
-                if(!testTime){
+                var testTime = obj['TestTime']
+                if(testTime){
                     return Number(testTime).toFixed(1)
                 }else{
                     return "0"
                 }
             },
             machineRate:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var ratio = row['MachineRate']
-                if(!ratio){
+                var ratio = obj['MachineRate']
+                if(ratio){
                     return ratio+"%"
                 }else{
                     return "0%"

@@ -188,33 +188,27 @@
         },
         methods: {
             payTime:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var payTime = row['payTime']
-                if(!payTime){
+                var payTime = obj['PayTime']
+                if( payTime){
                     return Number(payTime).toFixed(1)
                 }else{
                     return "0"
                 }
             },
             testTime:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var testTime = row['testTime']
-                if(!testTime){
+                 var testTime = obj['TestTime']
+                if(testTime){
                     return Number(testTime).toFixed(1)
                 }else{
                     return "0"
                 }
             },
             overRatio:function(obj){
-                var row, rowIndex;
-                row = obj.row;
-                var ratio = row['WorkTimeDoneRate']
-                if(!ratio){
-                    return ratio+"%"
+                var ratio = obj['WorkTimeDoneRate']
+                if(ratio){
+                    return Number(ratio)+"%"
                 }else{
-                    return ratio
+                    return "0%"
                 }
             },
             getSummaries:function (param) {

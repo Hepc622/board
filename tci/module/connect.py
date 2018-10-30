@@ -50,7 +50,10 @@ class Connect(object):
                 # 组装当前行的字典数据
                 row = {}
                 for i in range(len(rows)):
-                    row[index[i][0]]=rows[i]
+                    data = rows[i];
+                    if data is None:
+                        data = ""
+                    row[index[i][0]]=str(data)
                 result.append(row)
         except Exception:
             traceback.print_exc()
