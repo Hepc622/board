@@ -31,3 +31,25 @@ sys:
         - "SELECT * FROM dbo.ZboardPerson ('%s')"
         - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE WorkTimeDoneRate >=90 and WorkTimeDoneRate <=100"
         - "select COUNT(*) as NUM from dbo.ZboardPerson('%s') WHERE  WorkTimeDoneRate >100 or WorkTimeDoneRate <90 "
+    device_fix:
+        - "select
+                ZROW=ROW_NUMBER() OVER( order by TE003, EQTTE.UDF01)
+                ,EQTMJ.UDF07                                                                               
+                ,rtrim(TE010) as TE010                                                                     
+                ,rtrim(MJ006) AS MJ006                                                                     
+                ,rtrim(ME002) AS ME002                                                                     
+                ,left(TE003,4)+'/'+ subString(TE003,5,2)+'/'+  right(TE003,2)  AS TE003                    
+                ,EQTTE.UDF01                                                                               
+                ,rtrim(isnull(MH002,'')) AS MH002                                                          
+                ,rtrim(isnull(MI002,'')) AS MI002                                                          
+                ,EQTTE.UDF05                                                                               
+                ,Z001=ceiling( DATEDIFF(HOUR,CONVERT(datetime, TE003+' '+EQTTE.UDF01),GETDATE())/24)+1     
+           from EQTTE left join EQTMJ  ON MJ002=TE010 LEFT JOIN EQTMH ON MH001=TE020
+                      LEFT JOIN EQTMI ON MI001=TE023
+                     left join CMSME on ME001=TE017 where TE005='Y' AND TE020<>'0003' and TE019<>'1' 
+          and EQTMJ.UDF07 <> ''"
+        # 报修台数
+        - "select  COUNT(*) as NUM from EQTTE left join EQTMJ  ON MJ002=TE010 WHERE TE005='Y'  and TE003 =CONVERT(varchar,GETDATE(),112) AND TE019 !='1' AND TE020<>'0003' and EQTMJ.UDF07 <> ''"
+        # 设备故障台数
+        - "select  COUNT(*) as NUM from EQTTE left join EQTMJ  ON MJ002=TE010 WHERE TE005='Y' AND TE019 !='1' AND TE020<>'0003' and EQTMJ.UDF07 <> ''"
+        

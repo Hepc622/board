@@ -1,4 +1,4 @@
-	#!/usr/bin/ python
+#!/usr/bin/ python
 # vim: set fileencoding:utf-8
 
 
@@ -28,6 +28,12 @@ def device_unusual():
 @app.route("/personUnusual.html")
 def person_unusual():
     return send_file("templates/personUnusual.html")
+
+
+@app.route("/deviceFix")
+@app.route("/deviceFixStatus.html")
+def device_fix():
+    return send_file("templates/deviceFixStatus.html")
 
 
 

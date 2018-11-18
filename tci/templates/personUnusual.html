@@ -206,7 +206,7 @@
             overRatio:function(obj){
                 var ratio = obj['WorkTimeDoneRate']
                 if(ratio){
-                    return Number(ratio)+"%"
+                    return Number(ratio).toFixed(2)+"%"
                 }else{
                     return "0%"
                 }

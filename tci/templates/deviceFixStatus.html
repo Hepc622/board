@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" ondblclick="vue.exitFullScreen()" onclick="vue.gotoFullScreen()">
+<head>
+    <meta charset="UTF-8">
+    <!--&lt;!&ndash; UC强制全屏 &ndash;&gt;-->
+    <!--<meta name="full-screen" content="yes">-->
+    <!--&lt;!&ndash; QQ强制全屏 &ndash;&gt;-->
+    <!--<meta name="x5-fullscreen" content="true">-->
+    <!--&lt;!&ndash; IOS启用 WebApp 全屏模式 &ndash;&gt;-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes"/>-->
+    <title>board</title>
+
+    <!-- import CSS -->
+    <link rel="stylesheet" href="../static/js/element-ui/theme-chalk/index.css">
+</head>
+<body style="overflow:scroll;overflow-x:hidden;overflow-y:hidden;margin:3px">
+<div id="app">
+    <template>
+        <div class="customTitle">
+            <!-- log 标题 -->
+            <div class="logo">
+                <img src="../static/img/TCI_LOGO.png"/>
+                <span>设备报修状态看板</span>
+            </div>
+            <div class="count">
+                <span>{{unusual}}</span>
+                <span>{{usual}}</span>
+                <span>{{time}}</span>
+            </div>
+        </div>
+        <el-table
+                style="width: 100%"
+                border
+                show-summary
+                :data="tableData"
+                :summary-method="getSummaries"
+                :row-class-name="tableRowClassName"
+                :header-cell-style="{'background-color':'#FF9966'}">
+            <el-table-column 
+                     prop="UDF07"
+                     align="center"
+                     width="120"
+                     label="设备分类">
+            </el-table-column>
+            <el-table-column
+                    prop="TE010"
+                    align="center"
+                    width="120"
+                    label="设备编号">
+            </el-table-column>
+             <el-table-column
+                    prop="MJ006"
+                    align="center"
+                    label="设备名称">
+            </el-table-column>
+            <el-table-column
+                    prop="ME002"
+                    align="center"
+                    width="120"
+                    label="使用部门">
+            </el-table-column>
+            <el-table-column
+                    prop="TE003"
+                    align="center"
+                    width="120"
+                    label="报修日期">
+            </el-table-column>
+            <el-table-column
+                    prop="UDF01"
+                    align="center"
+                    width="120"
+                    label="报修时间">
+            </el-table-column>
+            <el-table-column
+                    prop="MH002"
+                    align="center"
+                    width="120"
+                    label="维修状态">
+            </el-table-column>
+            <el-table-column
+                    align="center"
+                    prop="MI002"
+                    width="120"
+                    label="当前设备状态">
+            </el-table-column>
+            <el-table-column
+                    prop="UDF05"
+                    width="120"
+                    align="center"
+                    label="报修等级">
+            </el-table-column>
+            <el-table-column
+                    prop="Z001"
+                    align="center"
+                    width="120"
+                    label="累计报修天数">
+            </el-table-column>
+        </el-table>
+    </template>
+</div>
+
+</body>
+</html>
+
+<style>
+	.el-table__empty-block{
+		display: none;
+	}
+    /*让字体顶格显示*/
+    .el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell {
+       padding-right: 0px; 
+       padding-left: 0px;
+    }
+    .el-table .cell, .el-table th div {
+        padding-left: 0px;
+        padding-right: 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .el-table .stop-row {
+        color: red;
+    }
+
+    .el-table .running-row {
+        color: blue;
+    }
+    .el-table .other-row {
+        color: black;
+    }
+    .el-table .fix-row {
+        color: red;
+    }
+   .el-table .cell{
+        height: 30px;
+        font-size: 19px;
+        font-weight: bold;
+        white-space: pre-line;
+        word-break: break-all;
+        line-height: 30px;
+    }
+    .el-table td, .el-table th{
+        padding: 2px 0; 
+    }
+    .el-table thead {
+        color: black;
+    }
+</style>
+
+
+<script src="../static/js/utils.js"></script>
+<script src="../static/js/element-ui/lib/index.js"></script>
+<script>
+    $(function(){
+        $("body").find("table").eq(0).find("th").css("background-color","#EBEEF5");
+    });
+    var vue = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                tableData: [],
+                params: {
+                    page_num: 0,
+                    page_size: 20,
+                    total: 0
+                },
+                usual: "设备故障数 0 台",
+                unusual: "今日报修数 0 台",
+                max_page: 1,
+                delay_time: 10000,
+                time: "2018/10/21"
+            }
+        },
+        created: function () {
+            var date = new Date();
+            var time = date.getTime()-86400000;
+            date = new Date(time);
+            var str = "";  
+            var week = date.getDay();  
+            if (week == 0) {  
+                    str = "星期日";  
+            } else if (week == 1) {  
+                    str = "星期一";  
+            } else if (week == 2) {  
+                    str = "星期二";  
+            } else if (week == 3) {  
+                    str = "星期三";  
+            } else if (week == 4) {  
+                    str = "星期四";  
+            } else if (week == 5) {  
+                    str = "星期五";  
+            } else if (week == 6) {  
+                    str = "星期六";  
+            }  
+            this.time=date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+"  "+str;
+
+            this.dealPageNum()
+            this.getData();
+            //开启定时任务
+            setInterval(this.getData, this.delay_time);
+        },
+        methods: {
+            getSummaries:function (param) {
+                var sums = ["总条数",this.params.total,
+                    "总页数",Math.ceil(this.params.total/this.params.page_size),
+                    "当前页",this.params.page_num];
+                return sums;
+            },
+            //更改行样式
+            tableRowClassName: function (obj) {
+                var row, rowIndex;
+                row = obj.row;
+                // --默认显示蓝色字体，白底
+                // --如果 EQTMJ.UDF07=='A' 显示红色字段 白底
+                var UDF07 = row['UDF07']
+                if(UDF07=='A'||UDF07=='a'){
+                    return "fix-row"
+                }else{
+                    return "other-row"
+                }
+                
+            },
+            //获取数据
+            getData: function () {
+                //动态设置分页页码
+                this.dealPageNum()
+                //发起请求
+                var that = this;
+                utils.post("/deviceFixStatus", this.params,function (res) {
+                    that.tableData = res.data;
+                    that.params.total = res.total;
+                    that.usual="今日报修数 "+res.usual[0].NUM+" 台";
+                    that.unusual="设备故障数 "+res.unusual[0].NUM+" 台";
+                    //重新设置一下max_page
+                    that.max_page = Math.ceil(that.params.total / that.params.page_size);
+                }, function (res) {
+
+                });
+            },
+            //处理分页参数
+            dealPageNum: function () {
+                var w_height = $(window).height();
+                var head = $(".el-table__header-wrapper").height();
+                var footer = $(".el-table__footer-wrapper").height();
+                var cell = 28;
+                w_height = w_height-head-footer-20;
+                this.params.page_size = w_height/cell>>0;
+                //每次调用页面数加一
+                this.params.page_num += 1;
+                //如果当前页数大于最大页数就至为第一页
+                if (this.params.page_num > this.max_page) {
+                    this.params.page_num = 1;
+                }
+            },
+            exitFullScreen: function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                } else if (document.msRequestExitFullscreen) {
+                    document.msRequestExitFullscreen();
+                }
+            },
+            gotoFullScreen: function () {
+                var docElm = document.documentElement;
+                //W3C
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                //FireFox
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                //Chrome等
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+                //IE11
+                else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+        }
+    });
+</script>
