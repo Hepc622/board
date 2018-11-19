@@ -12,7 +12,7 @@ ConnectPool()
 
 app = Flask(__name__)
 app.register_blueprint(bc)
-
+	
 
 @app.route("/")
 @app.route("/index.html")

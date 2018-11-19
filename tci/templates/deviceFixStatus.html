@@ -145,6 +145,46 @@
     .el-table thead {
         color: black;
     }
+    .customTitle{
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        background: #CC66CC;
+    }
+    .customTitle .logo{
+        width:50%;
+        height: 60px; 
+    }
+    .customTitle .logo img{
+        width: 100px;
+        height: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 60px; 
+        line-height: 40px;
+    }
+    .customTitle .logo span{
+        height: 60px;
+        width: 400px;
+        line-height: 60px;
+        font-weight: 900;
+        font-size: 35px;
+        position: absolute;
+        padding-left: 20px;
+    }
+
+    .customTitle .count{
+        position: absolute;
+        right: 30px;
+        height: 60px;
+        line-height: 60px;
+        top: 3px;
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .customTitle .count span{
+        margin-left: 30px;
+    }
 </style>
 
 
@@ -164,8 +204,8 @@
                     page_size: 20,
                     total: 0
                 },
-                usual: "设备故障数 0 台",
-                unusual: "今日报修数 0 台",
+                usual: "今日报修数 0 台",
+                unusual: "设备故障数 0 台",
                 max_page: 1,
                 delay_time: 10000,
                 time: "2018/10/21"
@@ -173,7 +213,7 @@
         },
         created: function () {
             var date = new Date();
-            var time = date.getTime()-86400000;
+            var time = date.getTime();
             date = new Date(time);
             var str = "";  
             var week = date.getDay();  
@@ -216,7 +256,7 @@
                 if(UDF07=='A'||UDF07=='a'){
                     return "fix-row"
                 }else{
-                    return "other-row"
+                    return "running-row"
                 }
                 
             },
@@ -243,7 +283,7 @@
                 var head = $(".el-table__header-wrapper").height();
                 var footer = $(".el-table__footer-wrapper").height();
                 var cell = 28;
-                w_height = w_height-head-footer-20;
+                w_height = w_height-head-footer-80;
                 this.params.page_size = w_height/cell>>0;
                 //每次调用页面数加一
                 this.params.page_num += 1;
